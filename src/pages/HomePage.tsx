@@ -36,7 +36,7 @@ function WhatsAppButton() {
       `}</style>
       <a
         className="wa-fab"
-        href="https://wa.me/18008324600"
+        href="https://wa.me/96557773787"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"

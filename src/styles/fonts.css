@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+body.ar-mode *,
+[dir="rtl"] * {
+  font-family: 'Cairo', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  direction: ltr;
+}
+
+/* 1. Global Font and Direction */
+[dir="rtl"] {
+  font-family: 'Cairo', sans-serif !important;
+  direction: rtl;
+}
+
+/* 1. Global Arabic Settings */
+[dir="rtl"] {
+  font-family: 'Cairo', sans-serif !important;
+  direction: rtl;
+}
+
+/* 2. THE MIRROR: Moves everything from left to right */
+[dir="rtl"] .rtl-fix-wrapper {
+  scale: -1 1; /* Swaps hardcoded 'left-xxx' to the right side */
+}
+
+/* 3. THE FIX: Flips text, images, and videos back so they are NOT backwards */
+[dir="rtl"] .rtl-fix-wrapper h1,
+[dir="rtl"] .rtl-fix-wrapper h2,
+[dir="rtl"] .rtl-fix-wrapper h3,
+[dir="rtl"] .rtl-fix-wrapper h4,
+[dir="rtl"] .rtl-fix-wrapper p,
+[dir="rtl"] .rtl-fix-wrapper span,
+[dir="rtl"] .rtl-fix-wrapper div:not([class*="absolute"]):not([class*="fixed"]), /* Only flip non-pos containers */
+[dir="rtl"] .rtl-fix-wrapper button,
+[dir="rtl"] .rtl-fix-wrapper img,
+[dir="rtl"] .rtl-fix-wrapper video,
+[dir="rtl"] .rtl-fix-wrapper svg {
+  scale: -1 1; /* Flips the characters back to normal */
+  text-align: right; /* Ensures Arabic text flows from the right */
+}
+
+/* 4. Formatting Fix: Prevents numbers and units (like 10ms) from looking weird */
+[dir="rtl"] .rtl-fix-wrapper span, 
+[dir="rtl"] .rtl-fix-wrapper p {
+  display: inline-block; /* Needed for the flip to work on small text pieces */
+  unicode-bidi: plaintext; 
+}
+
+/* 5. Fix for centered elements (like cards that use left-1/2) */
+[dir="rtl"] .rtl-fix-wrapper .left-1\/2 {
+  left: auto !important;
+  right: 50% !important;
+}
